@@ -1,0 +1,8 @@
+Error 1: Invalid Header.
+Error 2: The header is in a wrong place.
+Error 3: The header doesn't exists.
+Error 4: Pemission error.
+Error 5: Memory error.
+Error 6: The file is empty.
+Error 8: Invalid mode.
+Error 9: Invalid import statement.
