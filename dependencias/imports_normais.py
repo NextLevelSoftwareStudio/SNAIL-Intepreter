@@ -44,7 +44,7 @@ def código():
             else:
                 print("Error 9: Invalid import statement.")
                 atalhos.sair(mode=0)
-        if a.exists is False:
+        if a.exists() is False:
             oioi = str(a).replace('"', "")
             oioi2 = str(oioi).replace("'", "")
             print(f"Error 10: File {oioi2} doesn't exists.")
@@ -59,3 +59,4 @@ def código():
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
 # }
+
