@@ -12,13 +12,15 @@ def código():
         resultados = re.findall(padrao, conteúdo, re.MULTILINE)
         return [r.strip() for r in resultados]
     if "import " in conteúdo:
-        encontrados = extrair(conteúdo, "import ")
-        for linha_import in encontrados:
-            if ", " in linha_import:
-                partes = [p.strip() for p in linha_import.split(", ")]
-                bibliotecas.extend(partes)
-            else:
-                bibliotecas.append(linha_import.strip())
+            encontrados = extrair(conteúdo, "import ")
+            for linha_import in encontrados:
+                # Dividimos por vírgula para suportar: import os, sys as s
+                partes_virgula = [p.strip() for p in linha_import.split(",")]
+                for item in partes_virgula:
+                    # Pegamos apenas o que vem antes do " as "
+                    nome_real = item.split(" as ")[0].strip()
+                    if nome_real not in bibliotecas:
+                        bibliotecas.append(nome_real)
     bibliotecas_com_from = {}
     if "from " in conteúdo:
         encontrados = extrair(conteúdo, "from ")
