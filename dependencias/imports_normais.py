@@ -48,6 +48,7 @@ def código():
             oioi = str(a).replace('"', "")
             oioi2 = str(oioi).replace("'", "")
             print(f"Error 10: File {oioi2} doesn't exists.")
+            atalhos.sair(0)
     memória.mem.guardar(3, str(bibliotecas_com_from))
 
 # Exemplo da lista de bibliotecas extraídas:
@@ -58,5 +59,6 @@ def código():
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
 # }
+
 
 
