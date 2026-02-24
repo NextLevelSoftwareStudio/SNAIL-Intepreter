@@ -23,16 +23,23 @@ def código():
                         bibliotecas.append(nome_real)
     bibliotecas_com_from = {}
     if "from " in conteúdo:
-        encontrados = extrair(conteúdo, "from ")
-        for linha_from in encontrados:
-            if " import " in linha_from:
-                partes = [p.strip() for p in linha_from.split(" import ")]
-                modulo = partes[0]
-                recurso = partes[1]
-                if modulo not in bibliotecas_com_from:
-                    bibliotecas_com_from[modulo] = []
-                if recurso not in bibliotecas_com_from[modulo]:
-                    bibliotecas_com_from[modulo].append(recurso)
+            encontrados = extrair(conteúdo, "from ")
+            for linha_from in encontrados:
+                if " import " in linha_from:
+                    partes = [p.strip() for p in linha_from.split(" import ")]
+                    modulo = partes[0]
+                    recursos_brutos = partes[1]
+                    
+                    if modulo not in bibliotecas_com_from:
+                        bibliotecas_com_from[modulo] = []
+                    
+                    # Trata múltiplos recursos: from math import sqrt as raiz, pi
+                    lista_recursos = [r.strip() for r in recursos_brutos.split(",")]
+                    for r in lista_recursos:
+                        # Isola o nome original do recurso antes do 'as'
+                        nome_original = r.split(" as ")[0].strip()
+                        if nome_original not in bibliotecas_com_from[modulo]:
+                            bibliotecas_com_from[modulo].append(nome_original)
     for lib in bibliotecas:
         if lib not in bibliotecas_com_from:
             bibliotecas_com_from[lib] = []
