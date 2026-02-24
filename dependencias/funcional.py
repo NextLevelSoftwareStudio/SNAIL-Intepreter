@@ -10,6 +10,14 @@ def código():
     bibliotecas = memória.mem.ler(3)
     try:
         imports_.código()
+        with open(ficheiro, 'r', encoding='utf-8') as file:
+            conteúdo = file.read()
+        linhas = conteúdo.splitlines()
+        conteúdo_limpo = []
+        for num, linha in enumerate(linhas, start=1):
+            if not linha: continue
+            if not linha.endswith(';'):
+                print()
     except PermissionError as e:
         print(f"Error 4: Pemission error. ({e})")
         atalhos.sair(modo=0)
