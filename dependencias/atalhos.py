@@ -7,6 +7,3 @@ def sair(modo):
         print("Something has gone wrong.")
         recolha_de_lixo.código()
         sys.exit(1)
-def o_que_vem_depois(texto, onde_procurar):
-    for match in re.finditer(texto, onde_procurar):
-        return match.group(1)
