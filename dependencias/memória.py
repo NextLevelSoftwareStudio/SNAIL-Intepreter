@@ -51,7 +51,6 @@ class Memory:
             resultado = separador_final_itens.join(nova_lista)
         self.alocar(id_escolhido=id_escolhido, tamanho=len(resultado))
         self.guardar(id_escolhido=id_escolhido, texto=resultado)
-
     def ler_listas(self, id_escolhido):
         raw = self.ler(id_escolhido)
         if isinstance(raw, str) and raw.startswith("Erro:"):
