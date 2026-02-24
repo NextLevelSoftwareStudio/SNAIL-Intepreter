@@ -38,7 +38,7 @@ def código():
         b = i[0]
         c = str(b)
         a = extrair2(texto=c, palavra="from ")
-        if '"' in a:
+        if '"' in a or "'" in a:
             if str(a)[3] == ":" and str(a)[4] == "\\":
                 pass
             else:
@@ -58,4 +58,5 @@ def código():
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
 # }
+
 
