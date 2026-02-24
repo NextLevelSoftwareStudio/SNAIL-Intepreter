@@ -59,6 +59,3 @@ def código():
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
 # }
-
-
-
