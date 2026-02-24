@@ -1,5 +1,4 @@
 import memória, imports_, atalhos
-import re
 def código():
     modo = memória.mem.ler(1)
     ficheiro = memória.mem.ler(2)
