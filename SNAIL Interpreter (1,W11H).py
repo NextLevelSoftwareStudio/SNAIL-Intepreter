@@ -1,5 +1,4 @@
-import sys
-from dependencias import funcional, memória, recolha_de_lixo
+from dependencias import funcional, memória, recolha_de_lixo, atalhos
 ficheiro = input("Qual é o ficheiro? ")
 cabeçalho = "<SNAIL 1, "
 try:
@@ -9,8 +8,7 @@ try:
         modo = primeiralinha.split(cabeçalho)[1]
         if modo not in ["not-web", "web"]:
             print("Error 8: Invalid mode.")
-            recolha_de_lixo.código()
-            sys.exit(0)
+            atalhos.sair(modo=0)
         elif primeiralinha == cabeçalho + modo + ">":
             pass
         else:
