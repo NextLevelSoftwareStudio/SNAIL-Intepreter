@@ -44,6 +44,8 @@ def código():
             else:
                 print("Error 9: Invalid import statement.")
                 atalhos.sair(mode=0)
+        if a.exists is False:
+            print("")
     memória.mem.guardar(3, str(bibliotecas_com_from))
 
 # Exemplo da lista de bibliotecas extraídas:
@@ -53,4 +55,5 @@ def código():
 #     'requests': [],
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
+
 # }
