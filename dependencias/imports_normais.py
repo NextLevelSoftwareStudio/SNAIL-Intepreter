@@ -50,9 +50,9 @@ def código():
             print(f"Error 10: File {oioi2} doesn't exists.")
             atalhos.sair(0)
     memória.mem.guardar(3, str(bibliotecas_com_from))
-
 # Exemplo da lista de bibliotecas extraídas:
 # {
+#     '"C:\test.snail"': [],
 #     'os': [],
 #     'sys': [],
 #     'requests': [],
