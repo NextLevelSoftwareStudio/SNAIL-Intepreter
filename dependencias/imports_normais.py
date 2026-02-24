@@ -46,7 +46,7 @@ def código():
                 atalhos.sair(mode=0)
         if a.exists is False:
             oioi = str(a).replace('"', "")
-            oioi2 = str(a).replace("'", "")
+            oioi2 = str(oioi).replace("'", "")
             print(f"Error 10: File {oioi2} doesn't exists.")
     memória.mem.guardar(3, str(bibliotecas_com_from))
 
@@ -58,3 +58,4 @@ def código():
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
 # }
+
