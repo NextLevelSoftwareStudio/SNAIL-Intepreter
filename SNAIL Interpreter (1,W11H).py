@@ -1,4 +1,4 @@
-from dependencias import funcional, memória, recolha_de_lixo, atalhos
+from dependencias import funcional, memória, recolha_de_lixo, atalhos, funcional_web
 ficheiro = input("Qual é o ficheiro? ")
 cabeçalho = "<SNAIL 1, "
 try:
@@ -18,8 +18,10 @@ try:
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
-    if primeiralinha.startswith(cabeçalho):
+    if primeiralinha.startswith(cabeçalho) and modo == "not-web":
         funcional.código()
+    elif primeiralinha.startswith(cabeçalho) and modo == "web":
+        funcional_web.código()
     elif cabeçalho not in conteúdo:
         print("Error 3: The header doesn't exists.")
     elif cabeçalho in conteúdo and primeiralinha.startswith(cabeçalho) is False:

@@ -1,3 +1,4 @@
 1 - Modo
-2 - Ficheiro
+2 - Caminho do ficheiro
 3 - Bibliotecas
+4 - Conteúdo do ficheiro

@@ -10,7 +10,7 @@ def código():
         return [r.strip() for r in resultados]
     def extrair2(texto, palavra):
         padrao = rf"{re.escape(palavra)}(.*?)(?=(?://)|[\"#]|$)"
-        resultados = re.findall(padrao, conteúdo, re.MULTILINE)
+        resultados = re.findall(padrao, texto, re.MULTILINE)
         return [r.strip() for r in resultados]
     bibliotecas_com_from = {}
     if "import " in conteúdo:
