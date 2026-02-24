@@ -5,11 +5,11 @@ ficheiro = memória.mem.ler(2)
 conteúdo = open(ficheiro, "r").read()
 def código():
     def extrair(texto, palavra):
-        padrao = rf"{re.escape(palavra)}(.*?)(?=(?://)|$)"
+        padrao = rf"{re.escape(palavra)}(.*?)$"
         resultados = re.findall(padrao, texto, re.MULTILINE)
         return [r.strip() for r in resultados]
     def extrair2(texto, palavra):
-        padrao = rf"{re.escape(palavra)}(.*?)(?=(?://)|[\"#]|$)"
+        padrao = rf"{re.escape(palavra)}(.*?)(?=[\"#]|$)"
         resultados = re.findall(padrao, texto, re.MULTILINE)
         return [r.strip() for r in resultados]
     bibliotecas_com_from = {}
