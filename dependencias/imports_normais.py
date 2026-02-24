@@ -45,7 +45,9 @@ def código():
                 print("Error 9: Invalid import statement.")
                 atalhos.sair(mode=0)
         if a.exists is False:
-            print("")
+            oioi = str(a).replace('"', "")
+            oioi2 = str(a).replace("'", "")
+            print(f"Error 10: File {oioi2} doesn't exists.")
     memória.mem.guardar(3, str(bibliotecas_com_from))
 
 # Exemplo da lista de bibliotecas extraídas:
@@ -55,5 +57,4 @@ def código():
 #     'requests': [],
 #     'datetime': ['datetime'],
 #     'math': ['sqrt, pi']
-
 # }
