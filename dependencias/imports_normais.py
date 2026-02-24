@@ -11,35 +11,30 @@ def código():
         padrao = rf"{re.escape(palavra)}(.*?)(?=(?://)|[\"#]|$)"
         resultados = re.findall(padrao, conteúdo, re.MULTILINE)
         return [r.strip() for r in resultados]
+    bibliotecas_com_from = {}
     if "import " in conteúdo:
             encontrados = extrair(conteúdo, "import ")
-            for linha_import in encontrados:
-                # Dividimos por vírgula para suportar: import os, sys as s
-                partes_virgula = [p.strip() for p in linha_import.split(",")]
-                for item in partes_virgula:
-                    # Pegamos apenas o que vem antes do " as "
-                    nome_real = item.split(" as ")[0].strip()
-                    if nome_real not in bibliotecas:
-                        bibliotecas.append(nome_real)
-    bibliotecas_com_from = {}
+            for linha in encontrados:
+                for item in linha.split(","):
+                    partes_as = item.strip().split(" as ")
+                    nome_real = partes_as[0].strip()
+                    alias = partes_as[1].strip() if len(partes_as) > 1 else None
+                    if nome_real and nome_real not in bibliotecas_com_from:
+                        bibliotecas_com_from[nome_real] = [alias]
     if "from " in conteúdo:
             encontrados = extrair(conteúdo, "from ")
-            for linha_from in encontrados:
-                if " import " in linha_from:
-                    partes = [p.strip() for p in linha_from.split(" import ")]
-                    modulo = partes[0]
-                    recursos_brutos = partes[1]
-                    
+            for linha in encontrados:
+                if " import " in linha:
+                    partes = linha.split(" import ")
+                    modulo = partes[0].strip()
+                    recursos_txt = partes[1].strip()
                     if modulo not in bibliotecas_com_from:
-                        bibliotecas_com_from[modulo] = []
-                    
-                    # Trata múltiplos recursos: from math import sqrt as raiz, pi
-                    lista_recursos = [r.strip() for r in recursos_brutos.split(",")]
-                    for r in lista_recursos:
-                        # Isola o nome original do recurso antes do 'as'
-                        nome_original = r.split(" as ")[0].strip()
-                        if nome_original not in bibliotecas_com_from[modulo]:
-                            bibliotecas_com_from[modulo].append(nome_original)
+                        bibliotecas_com_from[modulo] = [None]
+                    for r in recursos_txt.split(","):
+                        p_as = r.strip().split(" as ")
+                        recurso_real = p_as[0].strip()
+                        if recurso_real not in bibliotecas_com_from[modulo]:
+                            bibliotecas_com_from[modulo].append(recurso_real)
     for lib in bibliotecas:
         if lib not in bibliotecas_com_from:
             bibliotecas_com_from[lib] = []
@@ -59,12 +54,3 @@ def código():
             print(f"Error 10: File {oioi2} doesn't exists.")
             atalhos.sair(0)
     memória.mem.guardar(3, str(bibliotecas_com_from))
-# Exemplo da lista de bibliotecas extraídas:
-# {
-#     '"C:\test.snail"': [],
-#     'os': [],
-#     'sys': [],
-#     'requests': [],
-#     'datetime': ['datetime'],
-#     'math': ['sqrt, pi']
-# }
