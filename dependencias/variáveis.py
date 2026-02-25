@@ -1,5 +1,5 @@
-import memória, re, atalhos
-variáveis_globais = []
+import memória, re
+variáveis_globais = {}
 def código():
     def extrair(texto, palavra):
         padrao = rf"{re.escape(palavra)}(.*?)$"
@@ -7,4 +7,4 @@ def código():
         return [r.strip() for r in resultados]
     conteúdo_do_ficheiro = memória.mem.ler(4)
     for match in re.finditer("var global ", conteúdo_do_ficheiro):
-        match.group(1)
+        oi = match.group(1)
