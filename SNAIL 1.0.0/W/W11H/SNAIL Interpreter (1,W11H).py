@@ -6,10 +6,12 @@ try:
         primeiralinha = file.readline()
         conteúdo = file.read()
         modo = primeiralinha.split(cabeçalho)[1]
+        cabeçalho_completo = cabeçalho + modo + primeiralinha.split(cabeçalho + modo)[1] + ">"
+        caminho_do_interprete = primeiralinha.split
         if modo not in ["not-web", "web"]:
             print("Error 8: Invalid mode.")
             atalhos.sair(modo=0)
-        elif primeiralinha == cabeçalho + modo + ">":
+        elif primeiralinha == cabeçalho_completo:
             pass
         else:
             print("Error 1: Invalid header.")
@@ -34,4 +36,5 @@ except PermissionError as e:
     print(f"Error 4: Pemission error. ({e})")
 except Exception as e:
     print(f"Something has gone wrong. ({e})")
+
 recolha_de_lixo.código()
