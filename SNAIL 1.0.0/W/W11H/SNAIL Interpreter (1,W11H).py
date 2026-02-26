@@ -23,6 +23,7 @@ try:
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
+        memória.mem.guardar()
     if primeiralinha.startswith(cabeçalho) and modo == "not-web":
         funcional.código()
     elif primeiralinha.startswith(cabeçalho) and modo == "web":
