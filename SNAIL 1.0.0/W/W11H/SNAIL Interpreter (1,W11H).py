@@ -5,9 +5,9 @@ try:
     with open(ficheiro, "r", encoding="utf-8") as file:
         primeiralinha = file.readline()
         conteúdo = file.read()
-        modo = primeiralinha.split(cabeçalho)[1]
+        modo = primeiralinha.split(",")[1]
         caminho_do_interprete = primeiralinha.split(str(cabeçalho + modo))[1]
-        cabeçalho_completo = cabeçalho + modo + caminho_do_interprete + ">"
+        cabeçalho_completo =
         if modo not in ["not-web", "web"]:
             print("Error 8: Invalid mode.")
             atalhos.sair(modo=0)
@@ -38,5 +38,6 @@ except Exception as e:
     print(f"Something has gone wrong. ({e})")
 
 recolha_de_lixo.código()
+
 
 
