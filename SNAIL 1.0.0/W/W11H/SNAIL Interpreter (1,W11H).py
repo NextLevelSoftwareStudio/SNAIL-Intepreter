@@ -38,3 +38,4 @@ except Exception as e:
     print(f"Something has gone wrong. ({e})")
 
 recolha_de_lixo.código()
+
