@@ -22,9 +22,9 @@ try:
 
         if primeiralinha.startswith(cabeçalhos[0]) is True:
             caminho_do_interprete = primeiralinha.strip(cabeçalhos[0])
-        elif
-        temporario = modo.replace(">", "")
-        modo = str(temporario.strip())
+        elif primeiralinha.startswith(cabeçalhos[1]) is True:
+            caminho_do_interprete = primeiralinha.strip(cabeçalhos[1])
+        modo =
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
