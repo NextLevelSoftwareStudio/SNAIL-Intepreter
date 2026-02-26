@@ -1,29 +1,34 @@
 from dependencias import funcional, memória, recolha_de_lixo, atalhos, funcional_web
 ficheiro = input("Qual é o ficheiro? ")
-cabeçalho = "<SNAIL 1, "
+# cabeçalho = "<SNAIL 1.0.0, "
+cabeçalhos = ["<SNAIL 1.0.0, not-web, ", "<SNAIL 1.0.0, web, "]
 try:
     with open(ficheiro, "r", encoding="utf-8") as file:
         primeiralinha = file.readline()
         conteúdo = file.read()
-        ajuda = primeiralinha.split(",")[1]
-        ajuda2 =ajuda.replace(" ", "")
-        ajuda4 = ajuda2.replace(",", "")
-        modo = ajuda4
-        caminho_do_interprete = primeiralinha.split(str(cabeçalho + modo))[1]
-        cabeçalho_completo = cabeçalho + modo + ", " + caminho_do_interprete + ">"
-        if modo not in ["not-web", "web"]:
-            print("Error 8: Invalid mode.")
-            atalhos.sair(modo=0)
-        elif primeiralinha == cabeçalho_completo:
-            pass
-        else:
-            print("Error 1: Invalid header.")
+        # ajuda = primeiralinha.split(",")[1]
+        # ajuda2 =ajuda.replace(" ", "")
+        # ajuda4 = ajuda2.replace(",", "")
+        # modo = ajuda4
+        # caminho_do_interprete = primeiralinha.split(str(cabeçalho + modo))[1]
+        # cabeçalho_completo = cabeçalho + modo + ", " + caminho_do_interprete + ">"
+        # if modo not in ["not-web", "web"]:
+        #     print("Error 8: Invalid mode.")
+        #     atalhos.sair(modo=0)
+        # elif primeiralinha == cabeçalho_completo:
+        #     pass
+        # else:
+        #     print("Error 1: Invalid header.")
+
+        if primeiralinha.startswith(cabeçalhos[0]) is True:
+            caminho_do_interprete = primeiralinha.strip(cabeçalhos[0])
+        elif
         temporario = modo.replace(">", "")
         modo = str(temporario.strip())
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
-        memória.mem.guardar()
+        memória.mem.guardar(5, caminho_do_interprete)
     if primeiralinha.startswith(cabeçalho) and modo == "not-web":
         funcional.código()
     elif primeiralinha.startswith(cabeçalho) and modo == "web":
