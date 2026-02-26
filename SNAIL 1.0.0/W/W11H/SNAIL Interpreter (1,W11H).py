@@ -10,7 +10,7 @@ try:
         ajuda4 = ajuda2.replace(",", "")
         modo = ajuda4
         caminho_do_interprete = primeiralinha.split(str(cabeçalho + modo))[1]
-        cabeçalho_completo =
+        cabeçalho_completo = cabeçalho + modo + ", " + caminho_do_interprete + ">"
         if modo not in ["not-web", "web"]:
             print("Error 8: Invalid mode.")
             atalhos.sair(modo=0)
@@ -41,6 +41,7 @@ except Exception as e:
     print(f"Something has gone wrong. ({e})")
 
 recolha_de_lixo.código()
+
 
 
 
