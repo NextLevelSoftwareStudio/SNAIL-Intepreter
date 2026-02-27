@@ -8,3 +8,4 @@ Error 8: Invalid mode.
 Error 9: Invalid import statement.
 Error 10: File doesn't exists.
 Error 11: Missing semicolon at the end of a line.
+Error 12: The second line ins't a valid metadata function.

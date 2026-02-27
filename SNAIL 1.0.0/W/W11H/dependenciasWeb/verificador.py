@@ -1,4 +1,4 @@
-from dependencias import memória
+from dependencias import memória, atalhos, regexHelp
 from dependenciasWeb import verificar_codigo_complexo
 def código():
     conteúdo_do_ficheiro = memória.mem.ler(id_escolhido=9)
@@ -15,5 +15,8 @@ def código():
 </html>"""
     if len(linhas) >= 1:
         primeira_linha = linhas[0]
-    if verificar_codigo_complexo.é_variante_valida(primeira_linha) is True:
-        if primeira_linha.startswith("")
+    language = primeira_linha
+    if verificar_codigo_complexo.é_variante_valida(language) is True:
+    elif verificar_codigo_complexo.é_variante_valida(language) is False:
+        print("Error 12: The second line ins't a valid metadata function.")
+        atalhos.sair(modo=0)
