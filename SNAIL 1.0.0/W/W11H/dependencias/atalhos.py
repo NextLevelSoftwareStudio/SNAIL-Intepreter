@@ -447,3 +447,5 @@ def listarISO3166_1Alpha_2Semobsoletos():
     "Zâmbia": "ZM",
     "Zimbábue": "ZW"
     }
+def listarISO15924Semobsoletos():
+    return {}
