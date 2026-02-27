@@ -460,6 +460,11 @@ def listarISO15924Semobsoletos():
         "Hangul": "Hang",
         "Árabe": "Arab",
         "Hebraico": "Hebr",
-        "Thaana": "Thaa"
-        
+        "Thaana": "Thaa",
+        "Devanagari": "Deva",
+        "Tailandês": "Thai",
+        "Bengali": "Beng",
+        "Guzerate": "Gujr",
+        "Tâmil": "Taml",
+        "Khmer": "Khmr"
     }
