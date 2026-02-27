@@ -1,0 +1,2 @@
+def código():
+    pass
