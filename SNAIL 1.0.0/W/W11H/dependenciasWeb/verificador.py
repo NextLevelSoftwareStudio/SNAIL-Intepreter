@@ -50,6 +50,12 @@ def código():
         elif verificar_codigo_complexo.é_variante_valida(language) is False:
             print("Error 12: The second line ins't a valid metadata function.")
             atalhos.sair(modo=0)
+        code = re.search(r'main start(.*?)main end', conteúdo_do_ficheiro)
+        if code:
+            main = code.group(1)
+        else:
+            print("Error 13: The main from the file is missing, or is incorrect.")
+            atalhos.sair(modo=0)
     elif primeira_linha.startswith(hihi) is False:
         print("Error 12: The second line ins't a valid metadata function.")
         atalhos.sair(modo=0)
