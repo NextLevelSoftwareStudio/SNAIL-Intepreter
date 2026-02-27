@@ -448,4 +448,18 @@ def listarISO3166_1Alpha_2Semobsoletos():
     "Zimbábue": "ZW"
     }
 def listarISO15924Semobsoletos():
-    return {}
+    return {
+        "Latino": "Latn",
+        "Cirílico": "Cyrl",
+        "Grego": "Grek",
+        "Chinês Simplificado": "Hans",
+        "Chinês Tradicional": "Hant",
+        "Japonês": "Jpan",
+        "Hiragana": "Hira",
+        "Katakana": "Kana",
+        "Hangul": "Hang",
+        "Árabe": "Arab",
+        "Hebraico": "Hebr",
+        "Thaana": "Thaa"
+        
+    }
