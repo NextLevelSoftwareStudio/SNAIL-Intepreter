@@ -1,6 +1,6 @@
 from dependencias import memória, atalhos
 from dependenciasWeb import verificar_codigo_complexo
-import re
+import re, base64, webbrowser
 def código():
     conteúdo_do_ficheiro = memória.mem.ler(id_escolhido=9)
     linhas = conteúdo_do_ficheiro.splitlines()
@@ -56,6 +56,20 @@ def código():
         else:
             print("Error 13: The main from the file is missing, or is incorrect.")
             atalhos.sair(modo=0)
+
+
+
+
+
+
+
+
+
+        # Abrindo o .html
+        html_bytes = ficheiro_html.encode('utf-8')
+        html_b64 = base64.b64encode(html_bytes).decode('utf-8')
+        data_uri = f"data:text/html;base64,{html_b64}"
+        webbrowser.open(data_uri)
     elif primeira_linha.startswith(hihi) is False:
         print("Error 12: The second line ins't a valid metadata function.")
         atalhos.sair(modo=0)
