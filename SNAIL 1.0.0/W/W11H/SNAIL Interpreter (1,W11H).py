@@ -24,7 +24,8 @@ try:
             caminho_do_interprete = primeiralinha.strip(cabeçalhos[0])
         elif primeiralinha.startswith(cabeçalhos[1]) is True:
             caminho_do_interprete = primeiralinha.strip(cabeçalhos[1])
-        modo =
+        
+        modo = 
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
