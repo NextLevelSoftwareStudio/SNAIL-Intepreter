@@ -6,12 +6,31 @@ def código():
     linhas = conteúdo_do_ficheiro.splitlines()
     if len(linhas) >= 1:
         primeira_linha = linhas[0]
-    match = re.search(r'language=<(.*?)>', texto)
-    if match:
-        language = match.group(1)
+
+    # idioma
+
+    match1 = re.search(r'language=<(.*?)>', primeira_linha)
+    if match1:
+        language = match1.group(1)
+    else:
+        print("Error 12: The second line ins't a valid metadata function.")
+
+    # encoding
+
+    if match2:
+        encoding = match2.group(1)
     else:
         print("Error 12: The second line ins't a valid metadata function.")
         atalhos.sair(modo=0)
+
+    # título
+
+    if match4:
+        título = match4.group(1)
+    else:
+        print("Error 12: The second line ins't a valid metadata function.")
+        atalhos.sair(modo=0)
+        
     if verificar_codigo_complexo.é_variante_valida(language) is True:
         ficheiro_html = f"""<!DOCTYPE html>
 <html lang="{language}">

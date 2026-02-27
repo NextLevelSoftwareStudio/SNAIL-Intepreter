@@ -1,5 +1,5 @@
 import memória
-counter = 6
+counter = 7
 def código():
     try:
         for i in range(1, counter + 1):
