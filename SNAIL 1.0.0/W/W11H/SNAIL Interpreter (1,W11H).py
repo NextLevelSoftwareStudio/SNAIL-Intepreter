@@ -7,25 +7,19 @@ try:
     with open(ficheiro, "r", encoding="utf-8") as file:
         primeiralinha = file.readline()
         conteúdo = file.read()
+        
+
+        # Descobrir o modo
         linhas = file.readlines()
-        # ajuda = primeiralinha.split(",")[1]
-        # ajuda2 =ajuda.replace(" ", "")
-        # ajuda4 = ajuda2.replace(",", "")
-        # modo = ajuda4
-        # caminho_do_interprete = primeiralinha.split(str(cabeçalho + modo))[1]
-        # cabeçalho_completo = cabeçalho + modo + ", " + caminho_do_interprete + ">"
-        # if modo not in ["not-web", "web"]:
-        #     print("Error 8: Invalid mode.")
-        #     atalhos.sair(modo=0)
-        # elif primeiralinha == cabeçalho_completo:
-        #     pass
-        # else:
-        #     print("Error 1: Invalid header.")
         arquivo_novo = linhas[1:]
         code = r'^<SNAIL 1.0.0, ([^,]+)'
         resultado = re.search(code, primeiralinha)
         if resultado:
             modo = resultado.group(1)
+        else:
+            print("Error 1: Invalid Header.")
+            atalhos.sair(0)
+        # Fim de descobrir o modo.
         if primeiralinha.startswith(cabeçalhos[0]) is True:
             ajuda = primeiralinha.strip(cabeçalhos[0])
             caminho_do_interprete = ajuda[:-1]
@@ -33,6 +27,7 @@ try:
             ajuda = primeiralinha.strip(cabeçalhos[1])
             caminho_do_interprete = ajuda[:-1]
         elif primeiralinha.startswith(cabeçalhos[0]) is False and primeiralinha.startswith(cabeçalhos[1]) is False:
+
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
