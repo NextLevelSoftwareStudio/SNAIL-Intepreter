@@ -22,9 +22,13 @@ try:
         if primeiralinha.startswith(cabeçalhos[0]) is True:
             ajuda = primeiralinha.strip(cabeçalhos[0])
             caminho_do_interprete = str(ajuda[:-1])
+            cabeçalho_completo = cabeçalhos[1] + caminho_do_interprete + ">"
+            memória.mem.guardar(id_escolhido=8, texto=str(cabeçalho_completo))
         elif primeiralinha.startswith(cabeçalhos[1]) is True:
             ajuda = primeiralinha.strip(cabeçalhos[1])
             caminho_do_interprete = str(ajuda[:-1])
+            cabeçalho_completo = cabeçalhos[1] + caminho_do_interprete + ">"
+            memória.mem.guardar(id_escolhido=8, texto=str(cabeçalho_completo))
         if primeiralinha.startswith(cabeçalhos[0]) is False and primeiralinha.startswith(cabeçalhos[1]) is False:
             oi1 = cabeçalhos[0] + caminho_do_interprete + ">"
             oi2 = cabeçalhos[1] + caminho_do_interprete + ">"
