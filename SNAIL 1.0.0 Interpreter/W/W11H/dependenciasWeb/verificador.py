@@ -56,7 +56,7 @@ def código():
         else:
             print("Error 13: The main from the file is missing, or is incorrect.")
             atalhos.sair(modo=0)
-
+        if ['text.title(size='] in main:
 
 
 
