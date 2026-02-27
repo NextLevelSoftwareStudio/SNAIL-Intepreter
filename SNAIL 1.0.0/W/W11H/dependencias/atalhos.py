@@ -1,4 +1,4 @@
-import sys, recolha_de_lixo, re
+import sys, recolha_de_lixo
 def sair(modo):
     if modo == 0:
         recolha_de_lixo.código()

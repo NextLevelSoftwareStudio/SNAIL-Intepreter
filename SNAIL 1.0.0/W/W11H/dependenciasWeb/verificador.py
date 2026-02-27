@@ -1,6 +1,8 @@
-from dependencias import memória, atalhos
+from dependencias import memória
+from dependenciasWeb import verificar_codigo_complexo
 def código():
     conteúdo_do_ficheiro = memória.mem.ler(id_escolhido=9)
+    linhas = conteúdo_do_ficheiro.splitlines()
     ficheiro_html = """<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,4 +13,7 @@ def código():
 <body>
     </body>
 </html>"""
-    códigos_de_idiomas 
+    if len(linhas) >= 1:
+        primeira_linha = linhas[0]
+    if verificar_codigo_complexo.é_variante_valida(primeira_linha) is True:
+        if primeira_linha.startswith("")
