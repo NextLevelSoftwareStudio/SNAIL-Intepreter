@@ -1,4 +1,5 @@
 from dependencias import funcional, memória, recolha_de_lixo, atalhos, funcional_web
+import re
 ficheiro = input("Qual é o ficheiro? ")
 # cabeçalho = "<SNAIL 1.0.0, "
 cabeçalhos = ["<SNAIL 1.0.0, not-web, ", "<SNAIL 1.0.0, web, "]
@@ -6,6 +7,7 @@ try:
     with open(ficheiro, "r", encoding="utf-8") as file:
         primeiralinha = file.readline()
         conteúdo = file.read()
+        linhas = file.readlines()
         # ajuda = primeiralinha.split(",")[1]
         # ajuda2 =ajuda.replace(" ", "")
         # ajuda4 = ajuda2.replace(",", "")
@@ -19,13 +21,18 @@ try:
         #     pass
         # else:
         #     print("Error 1: Invalid header.")
-
+        arquivo_novo = linhas[1:]
+        code = r'^<SNAIL 1.0.0, ([^,]+)'
+        resultado = re.search(code, primeiralinha)
+        if resultado:
+            modo = resultado.group(1)
         if primeiralinha.startswith(cabeçalhos[0]) is True:
-            caminho_do_interprete = primeiralinha.strip(cabeçalhos[0])
+            ajuda = primeiralinha.strip(cabeçalhos[0])
+            caminho_do_interprete = ajuda[:-1]
         elif primeiralinha.startswith(cabeçalhos[1]) is True:
-            caminho_do_interprete = primeiralinha.strip(cabeçalhos[1])
-        
-        modo = 
+            ajuda = primeiralinha.strip(cabeçalhos[1])
+            caminho_do_interprete = ajuda[:-1]
+        elif primeiralinha.startswith(cabeçalhos[0]) is False and primeiralinha.startswith(cabeçalhos[1]) is False:
         quantidade = int(len(ficheiro + modo))
         memória.mem.guardar(1, modo)
         memória.mem.guardar(2, ficheiro)
