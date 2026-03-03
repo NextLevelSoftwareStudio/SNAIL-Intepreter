@@ -53,10 +53,18 @@ def código():
         code = re.search(r'main start(.*?)main end', conteúdo_do_ficheiro)
         if code:
             main = code.group(1)
+            mainLines = main.splitlines()
         else:
-            print("Error 13: The main from the file is missing, or is incorrect.")
+            print("Error 13: The main section from the file is missing, or is incorrect.")
             atalhos.sair(modo=0)
-        if ['text.title(size='] in main:
+        para_verificar = ['text.title(size=']
+        for line in mainLines:
+            if para_verificar in mainLines:
+                pass
+            elif para_verificar not in mainLines:
+                print("Error 14: The main section is empty.")
+            
+            código = re.findall(r'text.title(size=(.*?)(?=\))')
 
 
 

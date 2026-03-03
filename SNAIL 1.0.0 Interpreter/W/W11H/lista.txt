@@ -9,4 +9,5 @@ Error 9: Invalid import statement.
 Error 10: File doesn't exists.
 Error 11: Missing semicolon at the end of a line.
 Error 12: The second line ins't a valid metadata function.
-Error 13: The main from the file is missing, or is incorrect.
+Error 13: The main section from the file is missing, or is incorrect.
+Error 14: The main section is empty.
